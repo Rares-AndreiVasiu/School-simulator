@@ -204,49 +204,43 @@ int main()
 
 					bool found = false;
 
+					//search for id of student
 					for (int i = 1; i <= positionStudent; ++i)
 					{
+						//if the id corresponds, free memory
 						if (eleviMoisil[i].getCNP() == cnp)
 						{
-							for (int j = i; j < positionStudent; j++)
+							for (int j = i; j < positionStudent; ++j)
 								eleviMoisil[j] = eleviMoisil[j + 1];
 
 							found = true;
+
 							positionStudent--;
 						}
 					}
+
 					if (!found)
+					{
 						ErrorExpelledStudent();
+					}
 					else
+					{
 						printConfirmationExpelled();
+					}
 
 				}
 				else
+				{
 					ErrorNoData();
-
+				}
 				sleep_for(4s);
 
 				clear();
 
 				break;
 			}
-
-			case 3:
-			{
-				break;
-			}
-			case 4:
-			{
-				break;
-			}
 			}
 		}
-
-		case 4:
-		{
-			return 0;
-		}
-
 		}
 	} while (optionMainMenu);
 
